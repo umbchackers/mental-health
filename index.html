@@ -1,0 +1,177 @@
+<html>
+    <head>
+        <title>Mental Health @ hackUMBC</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pagePiling.js/1.5.6/jquery.pagepiling.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap">
+        <style>
+            html { font-family: "Open Sans", sans-serif; }
+
+            .container {
+                max-width: 85%;
+                margin-right: auto;
+                margin-left: auto;
+                word-break: break-word;
+            }
+
+            .text-center { text-align: center; }
+
+            #menu {
+                list-style: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 70;
+                width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+
+            #menu li {
+                margin: 10px;
+                display: inline-block;
+                border-radius: 10px;
+                color: #000;
+                background: #fff;
+                background: rgba(255,255,255, 0.5);
+            }
+            
+            #menu li a {
+                text-decoration: none;
+                color: #000;
+            }
+
+            #menu li.active {
+                border: 1px solid gold;
+                color: #fff;
+            }
+
+            #menu li a, #menu li.active a {
+                padding: 9px 18px;
+                display: block;
+            }
+
+            /* For mobile phones: */
+            @media only screen and (max-width: 768px) {
+                #menu {
+                    display: none;
+                }
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <ul id="menu">
+            <li data-menuanchor="imposter-syndrome" class="active">
+                <a href="#imposter-syndrome">What is Imposter Syndrome?</a>
+            </li>
+            <li data-menuanchor="overcoming">
+                <a href="#overcoming">How can I overcome my Imposter Syndrome?</a>
+            </li>
+            <li data-menuanchor="staying-healthy">
+                <a href="#staying-healthy">How can I stay healthy at the hackathon?</a>
+            </li>
+            <li data-menuanchor="relaxation-apps">
+                <a href="#relaxation-apps">Try our relaxation apps!</a>
+            </li>
+        </ul>
+
+        <div id="pagepiling">
+            <div class="section" id="imposter-syndrome">
+                <div class="container">
+                    <h1 class="text-center">What is Imposter Syndrome?</h1>
+
+                    <p class="text-center">
+                        <i>Imposter Syndrome</i> is the feeling that we haven't earned our accomplishments, or that our ideas or creations aren't worth other's time.
+                    </p>
+
+                    <p class="text-center">
+                        <a href="https://www.youtube.com/watch?v=ZQUxL4Jm1Lo">Watch the TED-Ed video about Imposter Syndrome.</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="section" id="overcoming">
+                <div class="container">
+                    <h1 class="text-center">How can I overcome my Imposter Syndrome?</h1>
+
+                    <ul>
+                        <li>
+                            Know that you're not alone.
+                        </li>
+                        <li>
+                            Think about what <a href="https://www.themuse.com/advice/5-different-types-of-imposter-syndrome-and-5-ways-to-battle-each-one">type of Imposter Syndrome</a> you have.
+                        </li>
+                        <li>
+                            Try not to compare yourself to others, everyone is in different situations and comes from different backgrounds.
+                        </li>
+                    </ul>
+
+                    <b>Other Resources:</b>
+                    <ul>
+                        <li>
+                            <a href="https://guide.freecodecamp.org/working-in-tech/imposter-syndrome/">FreeCodeCamp: Imposter Syndrome</a>
+                        </li>
+                        <li>
+                            <a href="https://dynamicecology.wordpress.com/2017/10/18/imposter-syndrome-and-cognitive-distortions-some-thoughts-and-poorly-drawn-cartoons">Imposter Syndrome and Cognitive Distortions Explained Through Cartoons</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section" id="staying-healthy">
+                <div class="container">
+                    <h1 class="text-center">How can I stay healthy at the hackathon?</h1>
+
+                    <ul>
+                        <li>
+                            Take screen breaks, stand up and walk around, get fresh air.
+                        </li>
+                        <li>
+                            Eat healthy foods, drink water!
+                        </li>
+                        <li>
+                            Talk to the people around you.
+                        </li>
+                        <li>
+                            Don't let the stress of completion get to you, as long as you're learning, you've already accomplished something. You can always finish the program later.
+                        </li>
+                        <li>
+                            Try <a href="https://www.youtube.com/watch?v=inpok4MKVLM">Meditation</a> or <a href="https://www.youtube.com/watch?v=yqh8Be8noB4">Chair Yoga</a>.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section" id="relaxation-apps">
+                <div class="container">
+                    <h1 class="text-center">hackUMBC Relaxation Apps</h1>
+
+                    <ul>
+                        <li>
+                            <a href="deep-breathing-timer.html">Deep Breathing Timer</a> by <a href="https://github.com/reesdraminski/">Rees Draminski</a>
+                        </li>
+                        <li>
+                            <a href="virtual-bathtub-cow.html">Virtual Bathtub Cow</a> by <a href="https://github.com/trzh/">Tirzah Khan</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pagePiling.js/1.5.6/jquery.pagepiling.min.js"></script>
+        <script>
+            $("#pagepiling").pagepiling({
+                anchors: ["imposter-syndrome", "overcoming", "staying-healthy", "relaxation-apps"],
+                keyboardScrolling: true,
+                menu: "#menu",
+                navigation: false,
+                scrollingSpeed: 600,
+                sectionsColor: ["#f2f2f2", "#4BBFC3", "#7BAABE", "#DCD0FF"],
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <title>Deep Breathing Timer</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap">
+        <style>
+            html { font-family: "Open Sans", sans-serif; }
+
+            .container {
+                max-width: 85%;
+                text-align: center;
+                margin-right: auto;
+                margin-left: auto;
+                word-break: break-word;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <h1 id="action"></h1>
+            <br/>
+            <p id="timer"></p>
+        </div>
+
+        <script>
+            // state machine for meditation actions
+            const STATES = {
+                "START": { 
+                    next: "BREATHE_IN" 
+                },
+                "BREATHE_IN":  { 
+                    duration: 5,
+                    name: "Breathe In",
+                    next: "HOLD_BREATH" 
+                },
+                "HOLD_BREATH": { 
+                    duration: 7, 
+                    name: "Hold Breath",
+                    next: "BREATHE_OUT" 
+                },
+                "BREATHE_OUT": { 
+                    duration: 9, 
+                    name: "Breathe Out",
+                    next: "BREATHE_IN"  
+                }
+            };
+
+            // references to action and timer elements
+            const actionEl = document.getElementById("action");
+            const timerEl = document.getElementById("timer");
+
+            // goto start state and start countdown as already run out
+            let currentState = STATES.START;
+            let countdown = 0;
+
+            // run every second
+            setInterval(() => {
+                // if countdown has run out
+                if (countdown === 0) {
+                    // transition state
+                    currentState = STATES[currentState.next];
+        
+                    // reset countdown
+                    countdown = currentState.duration;
+        
+                    // reset font size
+                    timer.style.fontSize = "";
+                }
+    
+                // display current meditation action
+                actionEl.innerHTML = currentState.name;
+    
+                // show how much time left in action
+                timer.innerHTML = countdown;
+    
+                // get timer font size
+                let fontSize = timer.style.fontSize;
+    
+                // if no font size (action just started), start at default size
+                if (!fontSize) {
+                    fontSize = "24px";
+                }
+                // increase font size
+                else {
+                    // get font size number
+                    let size = fontSize.replace("px", "");
+                    size = parseInt(size);
+        
+                    // increase by 5 and convert to pixel size
+                    fontSize = (size + 5) + "px";
+                }
+    
+                // change timer font size
+                timer.style.fontSize = fontSize;
+    
+                // count one second as elapsed
+                countdown--;
+            }, 1000);
+        </script>
+    </body>
+</html>
